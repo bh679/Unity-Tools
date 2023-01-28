@@ -12,6 +12,7 @@
 /[Aa]ssets/BrennanHatton/BNG Tools*
 /[Aa]ssets/BrennanHatton/Discord*
 /[Aa]ssets/BrennanHatton/PUN*
+/[Aa]ssets/Plugins/Editor/ScriptInspector3*
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
