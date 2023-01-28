@@ -1,11 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace BrennanHatton {
-
-	/// <summary>
-	/// Adding comments to GameObjects in the Inspector.
-	/// </summary>
+namespace BrennanHatton.UnityTools
+{
 	public class Comments : MonoBehaviour {
 	
 		/// <summary>

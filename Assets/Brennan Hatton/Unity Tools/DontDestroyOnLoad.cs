@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 
-public class DontDestroyOnLoad : MonoBehaviour
+namespace BrennanHatton.UnityTools
 {
-	void Awake()
+	
+	public class DontDestroyOnLoad : MonoBehaviour
 	{
-		DontDestroyOnLoad( this );
+		void Awake()
+		{
+			DontDestroyOnLoad( this );
+		}
 	}
 }

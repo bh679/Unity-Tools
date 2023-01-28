@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BrennanHatton.Utilities
+namespace BrennanHatton.UnityTools
 {
+	
 
-	public class enableRandomGameobject : MonoBehaviour
+	public class EnableRandomGameobject : MonoBehaviour
 	{
 		public GameObject[] gameObjects;
 		public bool onEnable = true;

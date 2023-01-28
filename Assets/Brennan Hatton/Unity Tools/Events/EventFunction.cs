@@ -2,8 +2,9 @@
 using UnityEngine.Events;
 using UnityEngine;
 
-namespace BrennanHatton.Utilities
+namespace BrennanHatton.UnityTools
 {
+	
 	public class EventFunction : MonoBehaviour {
 		
 		[System.Serializable]

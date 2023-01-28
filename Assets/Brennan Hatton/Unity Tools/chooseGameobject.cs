@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BrennanHatton.Utilities
+namespace BrennanHatton.UnityTools
 {
-
-	public class chooseGameobject : MonoBehaviour
+	
+	public class ChooseGameobject : MonoBehaviour
 	{
 		//selects a gameobject from a list of gameobjects
 		//enables the selected one and disables the rest

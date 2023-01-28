@@ -2,8 +2,9 @@
 using System.Collections;
 using UnityEditor;
 
-namespace BrennanHatton {
-
+namespace BrennanHatton.UnityTools
+{
+	
 	[CustomEditor(typeof(Comments))]
 	public class CommentsInspector : Editor {
 	
