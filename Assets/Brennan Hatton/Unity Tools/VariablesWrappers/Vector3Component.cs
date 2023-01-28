@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Vector3Component : MonoBehaviour
+namespace BrennanHatton.UnityTools
 {
-	public Vector3 vector3Value;
+	public class Vector3Component : MonoBehaviour
+	{
+		public Vector3 vector3Value;
+	}
 }

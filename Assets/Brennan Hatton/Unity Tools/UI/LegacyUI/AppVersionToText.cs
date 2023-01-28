@@ -3,23 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AppVersionToText : MonoBehaviour
+namespace BrennanHatton.UnityTools
 {
-	public Text Text;
-
-	string _cache;
+	public class AppVersionToText : MonoBehaviour
+	{
+		public Text Text;
 	
-	void Reset()
-	{
-		Text = this.GetComponent<Text>();
-	}
-
-	void Update()
-	{
-		if (Application.version != _cache)
+		string _cache;
+		
+		void Reset()
 		{
-			_cache = Application.version;
-			Text.text = _cache;
+			Text = this.GetComponent<Text>();
+		}
+	
+		void Update()
+		{
+			if (Application.version != _cache)
+			{
+				_cache = Application.version;
+				Text.text = _cache;
+			}
 		}
 	}
 }

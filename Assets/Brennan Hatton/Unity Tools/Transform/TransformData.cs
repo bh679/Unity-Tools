@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-
-namespace BrennanHatton.Utilities
+namespace BrennanHatton.UnityTools
 {
-	
 	public delegate TransformData TransformDataDelegate(GameObject trans);
 	
 	public class TransformData{

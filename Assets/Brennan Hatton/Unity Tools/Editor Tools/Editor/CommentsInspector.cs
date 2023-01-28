@@ -6,7 +6,8 @@ namespace BrennanHatton.UnityTools
 {
 	
 	[CustomEditor(typeof(Comments))]
-	public class CommentsInspector : Editor {
+	public class CommentsInspector : Editor 
+	{
 	
 		private Comments script { get { return target as Comments; }}
 		private GUIStyle style = new GUIStyle();
@@ -15,7 +16,8 @@ namespace BrennanHatton.UnityTools
 		private static Color pro = new Color(0.5f, 0.7f, 0.3f, 1f);
 		private static Color free = new Color(0.2f, 0.3f, 0.1f, 1f);
 		
-		public override void OnInspectorGUI() {
+		public override void OnInspectorGUI() 
+		{
 			if (serializedObject == null) return;
 			
 			style.wordWrap = true;

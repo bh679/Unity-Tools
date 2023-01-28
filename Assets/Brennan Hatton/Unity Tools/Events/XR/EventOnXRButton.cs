@@ -1,11 +1,17 @@
-﻿using System;
+﻿/*Originally from ZenvaVR
+MIT License
+Copyright (c) 2022 Zenva Pty Ltd
+
+https://github.com/fariazz/zenvavr/blob/master/Assets/ZenvaVR/Toolkit/Scripts/ButtonController.cs
+*/
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR;
  
-namespace Zenva.VR
+namespace BrennanHatton.UnityTools
 {
 	public class EventOnXRButton : MonoBehaviour
 	{

@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace Generic.Move
+namespace BrennanHatton.UnityTools
 {
 	
-	[AddComponentMenu("Equal Reality/Move/Move Towards Target")]
+	[AddComponentMenu("BrennanHatton/Move/Move Towards Target")]
 public class MoveTowardsTarget : MonoBehaviour {
 
 	//This is the object we are following

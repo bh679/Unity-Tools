@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-namespace BrennanHatton.Notifications
+namespace BrennanHatton.UnityTools.Notifications
 {
 
 	public class CreateNotification : MonoBehaviour

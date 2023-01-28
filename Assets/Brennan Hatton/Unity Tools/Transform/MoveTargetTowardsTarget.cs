@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace Generic.Move
+namespace BrennanHatton.UnityTools
 {
-	[AddComponentMenu("SiliconVagabond/Move/Move Target Towards Target")]
+	[AddComponentMenu("BrennanHatton/Move/Move Target Towards Target")]
     public class MoveTargetTowardsTarget : MonoBehaviour {
 
 

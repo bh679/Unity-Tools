@@ -5,49 +5,52 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-[RequireComponent(typeof(CopyTransform))]
-public class FindPlayerHeadForCopyTransform : MonoBehaviour
+namespace BrennanHatton.UnityTools
 {
-	static GameObject head;
-	CopyTransform copy;
-	public bool onEnable = false;
-	
-	public void Reset()
+	[RequireComponent(typeof(CopyTransform))]
+	public class FindPlayerHeadForCopyTransform : MonoBehaviour
 	{
+		static GameObject head;
+		CopyTransform copy;
+		public bool onEnable = false;
 		
-#if UNITY_EDITOR
-		
-		copy = this.GetComponent<CopyTransform>();
-		var newserializedObject = new SerializedObject(copy);
-		newserializedObject.Update();
-		SerializedProperty _targetProperty = newserializedObject.FindProperty("target"); 
-		
-		head = GameObject.Find("CenterEyeAnchor");
-				
-		// We need to tell Unity we're changing the component object too.
-		Undo.RecordObject(copy, "Connected head to copytranform");
-
-		if(head != null)
+		public void Reset()
 		{
-			_targetProperty.objectReferenceValue = head.transform;
-			newserializedObject.ApplyModifiedProperties();
-		}
-#endif
-	}
-	
-	void OnEnable()
-	{
-		if(onEnable)
-			FindHead();
-	}
-	
-	public void FindHead()
-	{
-		if(head == null)
-			head = GameObject.Find("CenterEyeAnchor");
-		if(copy == null)
-			copy = this.GetComponent<CopyTransform>();
 			
-		copy.target = head.transform;
+	#if UNITY_EDITOR
+			
+			copy = this.GetComponent<CopyTransform>();
+			var newserializedObject = new SerializedObject(copy);
+			newserializedObject.Update();
+			SerializedProperty _targetProperty = newserializedObject.FindProperty("target"); 
+			
+			head = GameObject.Find("CenterEyeAnchor");
+					
+			// We need to tell Unity we're changing the component object too.
+			Undo.RecordObject(copy, "Connected head to copytranform");
+	
+			if(head != null)
+			{
+				_targetProperty.objectReferenceValue = head.transform;
+				newserializedObject.ApplyModifiedProperties();
+			}
+	#endif
+		}
+		
+		void OnEnable()
+		{
+			if(onEnable)
+				FindHead();
+		}
+		
+		public void FindHead()
+		{
+			if(head == null)
+				head = GameObject.Find("CenterEyeAnchor");
+			if(copy == null)
+				copy = this.GetComponent<CopyTransform>();
+				
+			copy.target = head.transform;
+		}
 	}
 }

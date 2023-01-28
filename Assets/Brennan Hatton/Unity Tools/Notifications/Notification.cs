@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace BrennanHatton.Notifications
+namespace BrennanHatton.UnityTools.Notifications
 {
 
 	public class Notification : MonoBehaviour

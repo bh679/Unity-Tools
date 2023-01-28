@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace BrennanHatton.Audio
+namespace BrennanHatton.UnityTools
 {
 	public class AudioList : MonoBehaviour
 	{

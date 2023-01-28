@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BrennanHatton.Utilities
-
+namespace BrennanHatton.UnityTools
 {
-	public class setMaterial : MonoBehaviour
+	public class SetMaterial : MonoBehaviour
 	{
 		public MeshRenderer[] meshRenderers;
 		public Material[] materials;
@@ -28,7 +27,7 @@ namespace BrennanHatton.Utilities
 				SetRandomMaterial();
 		}
 		
-		public void SetMaterial(int x)
+		public void SetMaterialPlz(int x)
 		{
 			for(int i = 0; i < meshRenderers.Length; i++)
 			{
@@ -45,19 +44,19 @@ namespace BrennanHatton.Utilities
 			//get a random material
 			materialId = Random.Range(0, materials.Length);
 			
-			SetMaterial(materialId);
+			SetMaterialPlz(materialId);
 		}
 		
 		public void enableFacilitatorMaterial()
 		{
 			isFacilitator = true;
-			SetMaterial(materialId);
+			SetMaterialPlz(materialId);
 		}
 		
 		public void disableFacilitatorMaterial()
 		{
 			isFacilitator = false;
-			SetMaterial(materialId);
+			SetMaterialPlz(materialId);
 		}
 	}
 }
