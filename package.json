@@ -8,5 +8,10 @@
 	{
 		"name": "Brennan Hatton",
 		"url": "https://brennanhatton.com/"
+	},
+	"dependencies": 
+	{
+	   "Unity.TextMeshPro": "3.0.6",
+	   "Unity.InputSystem": "1.4.4"
 	}
 }
