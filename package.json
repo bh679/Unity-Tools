@@ -2,7 +2,7 @@
 	"name": "com.brennanhatton.unitytools",
 	"description": "Generic tools of thigns I frequently use in Unity",
 	"version": "1.0.0",
-	"unity": "2021.3.16f1",
+	"unity": "2021.3",
 	"displayName": "Brennan Hattons Unity Tools",
 	"author": 
 	{
