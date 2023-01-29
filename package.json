@@ -11,7 +11,7 @@
 	},
 	"dependencies": 
 	{
-	   "com.Unity.TextMeshPro": "3.0.6",
+	   "com.unity.textmeshpro": "3.0.6",
 	   "com.Unity.InputSystem": "1.4.4"
 	}
 }
