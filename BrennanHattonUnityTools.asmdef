@@ -1,6 +1,6 @@
 {
     "name": "BrennanHattonUnityTools",
-    "rootNamespace": "",
+    "rootNamespace": "BrennanHatton.UnityTools",
     "references": [
         "Unity.TextMeshPro",
         "Unity.InputSystem"
