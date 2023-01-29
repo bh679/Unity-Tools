@@ -3,7 +3,10 @@
 	"description": "Generic tools of thigns I frequently use in Unity",
 	"version": "1.0.0",
 	"unity": "2021.3",
+  	"unityRelease": "16f1",
 	"displayName": "Brennan Hattons Unity Tools",
+  	"documentationUrl": "https://github.com/bh679/Unity-Tools",
+  	"licensesUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
 	"author": 
 	{
 		"name": "Brennan Hatton",
@@ -14,4 +17,11 @@
 	   "com.unity.textmeshpro": "3.0.6",
 	   "com.unity.inputsystem": "1.4.4"
 	}
+	"keywords": 
+	[
+		"Brennan",
+		"Hatton",
+		"Brennan Hatton"
+	 ],
+	"hideInEditor":"false"
 }
