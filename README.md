@@ -15,7 +15,7 @@ Install requirements above.
 add the following line to your project's `manifest.json`:
 
 ```
-"com.github.siccity.serializablecallback": "git+https://github.com/Siccity/SerializableCallback.git"
+"com.brennanhatton.untiytools": "git+https://github.com/bh679/Unity-Tools.git"
 ```
 
 of 
