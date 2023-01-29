@@ -9,7 +9,7 @@ Unity (most recent tested on 2021.3.16f1) <br />
 ## License
 [Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/)
 
-### Installing with Unity Package Manager
+## Installing with Unity Package Manager
 To install this project as a dependency using the Unity Package Manager,
 Install requirements above.
 add the following line to your project's `manifest.json`:
