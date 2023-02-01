@@ -10,32 +10,59 @@ namespace BrennanHatton.UnityTools
 	{
 		
 		public UnityEvent onFinish = new UnityEvent();
+		public UnityEvent onStart = new UnityEvent();
+		public UnityEvent isAlreadyTalking_notContinuous = new UnityEvent();
+	
+		public bool continuous = false;
 	    
 		public void RunWhenFinished(AudioSource audioSource)
 		{
-			//Debug.Log("RunWhenFinished");
 			StartCoroutine(runWhenFinished(audioSource));
 		}
 		
 		IEnumerator runWhenFinished(AudioSource audioSource)
 		{
-			//Debug.Log("runWhenFinished");
-			//float time = 0;
+			bool started = audioSource.isPlaying;
+			
+			if(started)
+				isAlreadyTalking_notContinuous.Invoke();
+			
+			while(continuous)
+			{
+				
+				while(audioSource.isPlaying)
+				{
+					yield return new WaitForEndOfFrame();
+				}
+				
+				if(started)
+					onFinish.Invoke();
+				
+				while(!audioSource.isPlaying)
+				{
+					yield return new WaitForEndOfFrame();
+
+				}
+				onStart.Invoke();
+				
+			}
+			
+			
 			while(audioSource.isPlaying)
 			{
 				yield return new WaitForEndOfFrame();
-				
-				/*if(time > 120)
-				{
-					Debug.Log("Waiting for autio");
-					time = 0;
-				}
-				time++;*/
 
 			}
-			//Debug.Log("onFinishInvoke");
 			
 			onFinish.Invoke();
+			
+				
+			while(!audioSource.isPlaying)
+			{
+				yield return new WaitForEndOfFrame();
+
+			}
+			onStart.Invoke();
 			
 			yield return null;
 		}
