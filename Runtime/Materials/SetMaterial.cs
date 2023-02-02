@@ -16,6 +16,7 @@ namespace BrennanHatton.UnityTools
 		
 		public bool onEnable = true;
 		
+		public int MaterialId {get{return materialId;}}
 		int materialId;
 		
 		void Reset()
@@ -31,7 +32,6 @@ namespace BrennanHatton.UnityTools
 		
 		public void SetMaterialPlz(int x)
 		{
-			Debug.LogError("SetMaterialPlz " + x);
 			for(int i = 0; i < meshRenderers.Length; i++)
 			{
 				if(!isFacilitator)
