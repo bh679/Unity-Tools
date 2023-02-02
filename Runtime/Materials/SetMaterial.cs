@@ -1,4 +1,4 @@
-﻿//Writen by Roy @ Equal Reality 2022
+//Writen by Roy @ Equal Reality 2022
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +10,7 @@ namespace BrennanHatton.UnityTools
 		public MeshRenderer[] meshRenderers;
 		public Material[] materials;
 		public Material[] FacilitatorMaterials;
+		public UnityIntEvent onMatChange;
 		
 		bool isFacilitator = false;
 		
@@ -30,6 +31,7 @@ namespace BrennanHatton.UnityTools
 		
 		public void SetMaterialPlz(int x)
 		{
+			Debug.LogError("SetMaterialPlz " + x);
 			for(int i = 0; i < meshRenderers.Length; i++)
 			{
 				if(!isFacilitator)
@@ -38,6 +40,8 @@ namespace BrennanHatton.UnityTools
 				else
 					meshRenderers[i].material = FacilitatorMaterials[x];
 			}
+			
+			onMatChange.Invoke(x);
 		}
 		
 		public void SetRandomMaterial()
