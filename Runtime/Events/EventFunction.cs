@@ -1,9 +1,14 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
 
 namespace BrennanHatton.UnityTools
 {
+	/// <summary>
+	/// A UnityEvent with a Grabber as the parameter
+	/// </summary>
+	[System.Serializable]
+	public class UnityIntEvent : UnityEvent<int> { }
 	
 	public class EventFunction : MonoBehaviour {
 		
