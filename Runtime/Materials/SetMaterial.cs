@@ -32,13 +32,15 @@ namespace BrennanHatton.UnityTools
 		
 		public void SetMaterialPlz(int x)
 		{
+			materialId = x;
+			
 			for(int i = 0; i < meshRenderers.Length; i++)
 			{
 				if(!isFacilitator)
-					meshRenderers[i].material = materials[x];
+					meshRenderers[i].material = materials[x % materials.Length];
 					
 				else
-					meshRenderers[i].material = FacilitatorMaterials[x];
+					meshRenderers[i].material = FacilitatorMaterials[x % FacilitatorMaterials.Length];
 			}
 			
 			onMatChange.Invoke(x);
