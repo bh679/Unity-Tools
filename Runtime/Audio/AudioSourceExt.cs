@@ -66,15 +66,22 @@ namespace BrennanHatton.UnityTools
 		
 		public void VolumeFadeToZero(float speed)
 		{
-			StartCoroutine(_VolumeFadeToZero(speed));
+			StartCoroutine(volumeDecreaseToTarget(speed, 0));
 		}
-		IEnumerator _VolumeFadeToZero(float speed)
+		
+		
+		public void VolumeDecreaseToTarget(float speed, float target)
+		{
+			StartCoroutine(volumeDecreaseToTarget(speed, target));
+		}
+		
+		IEnumerator volumeDecreaseToTarget(float speed, float target)
 		{
 			
 			float volume = 
 				audioSource.volume;
 			
-			while(volume > 0)
+			while(volume > target)
 			{
 				volume = volume - Time.deltaTime*speed;
 				audioSource.volume = volume;
@@ -82,7 +89,7 @@ namespace BrennanHatton.UnityTools
 				
 			}
 			
-			audioSource.volume = 0;
+			audioSource.volume = target;
 			
 			yield return null;
 		}
