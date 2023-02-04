@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -90,16 +90,22 @@ namespace BrennanHatton.UnityTools
 		
 		public void VolumeFadeToFull(float speed)
 		{
-			StartCoroutine(_VolumeFadeToFull(speed));
+			StartCoroutine(volumeIncreaseToTarget(speed, 1f));
 		}
 		
-		IEnumerator _VolumeFadeToFull(float speed)
+		
+		public void VolumeIncreaseToTarget(float speed, float target)
+		{
+			StartCoroutine(volumeIncreaseToTarget(speed, target));
+		}
+		
+		IEnumerator volumeIncreaseToTarget(float speed, float target)
 		{
 			
 			float volume = 
 				audioSource.volume;
 			
-			while(volume < 1)
+			while(volume < target)
 			{
 				volume = volume + Time.deltaTime*speed;
 				audioSource.volume = volume;
@@ -107,7 +113,7 @@ namespace BrennanHatton.UnityTools
 				
 			}
 			
-			audioSource.volume = 1;
+			audioSource.volume = target;
 			
 			yield return null;
 		}
