@@ -41,6 +41,7 @@ namespace BrennanHatton.UnityTools
 		
 		public void VolumeFadeToZeroAndPause(float speed)
 		{
+			StopAllCoroutines();
 			StartCoroutine(_VolumeFadeToZeroAndPause(speed));
 		}
 		IEnumerator _VolumeFadeToZeroAndPause(float speed)
@@ -64,59 +65,73 @@ namespace BrennanHatton.UnityTools
 		}
 		
 		
-		public void VolumeFadeToZero(float speed)
+		public void VolumeFadeToTarget(float time, float target)
 		{
-			StartCoroutine(volumeDecreaseToTarget(speed, 0));
+			if(target > audioSource.volume)
+				VolumeDecreaseToTarget(time, target);
+			else if(target < audioSource.volume)
+				VolumeIncreaseToTarget(time, target);
 		}
 		
 		
-		public void VolumeDecreaseToTarget(float speed, float target)
+		public void VolumeFadeToZero(float time)
 		{
-			StartCoroutine(volumeDecreaseToTarget(speed, target));
+			VolumeDecreaseToTarget(time, 0);
 		}
 		
-		IEnumerator volumeDecreaseToTarget(float speed, float target)
+		
+		public void VolumeDecreaseToTarget(float time, float target)
 		{
-			
+			StopAllCoroutines();
+			StartCoroutine(volumeDecreaseToTarget(time, target));
+		}
+		
+		IEnumerator volumeDecreaseToTarget(float time, float target)
+		{
+			Debug.Log(Time.time);
 			float volume = 
 				audioSource.volume;
-			
+			float distance = volume - target;
 			while(volume > target)
 			{
-				volume = volume - Time.deltaTime*speed;
+				volume = volume - (Time.deltaTime/time)/distance;
 				audioSource.volume = volume;
-				yield return new WaitForSeconds(Time.deltaTime);
+				yield return new WaitForEndOfFrame();
 				
 			}
 			
 			audioSource.volume = target;
+			Debug.Log(Time.time);
 			
 			yield return null;
 		}
 		
 		
-		public void VolumeFadeToFull(float speed)
+		public void VolumeFadeToFull(float time)
 		{
-			StartCoroutine(volumeIncreaseToTarget(speed, 1f));
+			VolumeIncreaseToTarget(time, 1f);
 		}
 		
 		
-		public void VolumeIncreaseToTarget(float speed, float target)
+		public void VolumeIncreaseToTarget(float time, float target)
 		{
-			StartCoroutine(volumeIncreaseToTarget(speed, target));
+			StopAllCoroutines();
+			StartCoroutine(volumeIncreaseToTarget(time, target));
 		}
 		
-		IEnumerator volumeIncreaseToTarget(float speed, float target)
+		IEnumerator volumeIncreaseToTarget(float time, float target)
 		{
 			
 			float volume = 
 				audioSource.volume;
 			
+			float distance = target - volume;
 			while(volume < target)
 			{
-				volume = volume + Time.deltaTime*speed;
+				volume = volume + (Time.deltaTime/time)/distance;
+				//volume = volume + Time.deltaTime/speed;
 				audioSource.volume = volume;
-				yield return new WaitForSeconds(Time.deltaTime);
+				yield return new WaitForEndOfFrame();
 				
 			}
 			
