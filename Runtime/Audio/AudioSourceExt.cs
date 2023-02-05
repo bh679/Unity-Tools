@@ -94,8 +94,8 @@ namespace BrennanHatton.UnityTools
 			float distance = volume - target;
 			while(volume > target)
 			{
-				Debug.Log("volume -= (Time.deltaTime/time)/distance");
-				Debug.Log(volume + " -= ("+Time.deltaTime+"/"+time+")/"+distance+";"	);
+				//Debug.Log("volume -= (Time.deltaTime/time)/distance");
+				//Debug.Log(volume + " -= ("+Time.deltaTime+"/"+time+")/"+distance+";"	);
 				volume -= distance/(time*10f);
 				audioSource.volume = volume;
 				yield return new WaitForSeconds(0.1f);
