@@ -7,6 +7,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace BrennanHatton.UnityTools
+{
+
 public static class RectTransformExtensions {
 	public static Vector2 GetSize(this RectTransform source) => source.rect.size;
 	public static float GetWidth(this RectTransform source) => source.rect.size.x;
@@ -41,4 +44,6 @@ public static class RectTransformExtensions {
 	public static void SetHeight(this RectTransform source, float height) {
 		source.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
 	}
+}
+
 }
