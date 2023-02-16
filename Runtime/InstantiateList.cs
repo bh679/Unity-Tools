@@ -8,6 +8,7 @@ namespace BrennanHatton.UnityTools
 	public class InstantiateList : MonoBehaviour
 	{
 		int id = 0, line = 0;
+		[Tooltip("Number of objects to create per frame")]
 		public int speed = 5;
 		
 		public void Clear()
