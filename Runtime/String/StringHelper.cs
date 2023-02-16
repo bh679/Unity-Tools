@@ -1,7 +1,7 @@
 ﻿
 namespace BrennanHatton.UnityTools
 {
-	static class StringHelper
+	public static class StringHelper
 	{
 		public static string GetUntilOrEmpty(this string text, string stopAt = "-")
 		{
