@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -35,7 +35,7 @@ namespace BrennanHatton.AI
 			for(int i = 0; i < prePromptText.Length; i++)
 				prompt += prePromptText[i].text;
 			
-			prompt = prePrompt + _prompt + postPrompt;
+			prompt += prePrompt + _prompt + postPrompt;
 			
 			
 			for(int i = 0; i < prePromptText.Length; i++)
@@ -43,6 +43,8 @@ namespace BrennanHatton.AI
 			
 			if(postInput != null)
 				prompt += postInput.text;
+				
+			Debug.Log(prompt);
 				
 			return prompt;
 		}
