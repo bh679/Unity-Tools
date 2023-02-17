@@ -1,15 +1,14 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using BrennanHatton.UnityTools;
 
 namespace BrennanHatton.AI
 {
 	
 	public class SingleResponseDisplay : MonoBehaviour
 	{
-		public TMP_Text tmpText;
+		public TMP_Text tmpText, promptText;
 		public float paddingTop, lineHeight, paddingBottom;
 		public InteractionData interactionData;
 		float height;
@@ -23,10 +22,13 @@ namespace BrennanHatton.AI
 			paddingBottom = ((RectTransform)this.transform).rect.height - (paddingTop+lineHeight);
 		}
 		
-		public void SetResponse(InteractionData data)
+		public void SetResponse(InteractionData data, bool includePrompt = false)
 		{
 			interactionData = data;
 			SetText(interactionData.generatedText);
+			
+			if(includePrompt && promptText != null)
+				promptText.text = data.requestData.prompt;
 		}
 		
 		void SetText(string text)
