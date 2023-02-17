@@ -1,7 +1,6 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using BrennanHatton.UnityTools;
 
 namespace BrennanHatton.AI
 {
@@ -12,11 +11,14 @@ namespace BrennanHatton.AI
 		public RectTransform origin;
 		public SingleResponseDisplay singleResposeDisplayPrefab;
 		public List<SingleResponseDisplay> responses = new List<SingleResponseDisplay>();
+		public Transform responseParent;
+		public bool includePrompt;
 		RectTransform rect;
 		
 		void Reset()
 		{
 			gpt3 = FindObjectOfType<GPT3>();
+			responseParent = this.transform;
 		}
 		
 	    // Start is called before the first frame update
@@ -29,10 +31,10 @@ namespace BrennanHatton.AI
 		public void AddResponse(InteractionData data)
 		{
 			//make new item
-			SingleResponseDisplay response = Instantiate(singleResposeDisplayPrefab, origin.localPosition,origin.localRotation,this.transform);
+			SingleResponseDisplay response = Instantiate(singleResposeDisplayPrefab, origin.localPosition,origin.localRotation, responseParent);
 			((RectTransform)response.transform).SetLocalPositionAndRotation(origin.localPosition,origin.localRotation);
 			response.gameObject.SetActive(true);
-			response.SetResponse(data);
+			response.SetResponse(data, includePrompt);
 			
 			//move all down
 			for(int i = 0; i < responses.Count; i++)
