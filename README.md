@@ -26,7 +26,7 @@ Unity (most recent tested on 2021.3.16f1) <br />
 
 ## Installing with Unity Package Manager
 To install this project as a dependency using the Unity Package Manager,
-Install requirements above.
+Install requirements above.<br >
 Windows -> Package Manager -> '+' -> `add package from git URL...` ->
 ```
 https://github.com/bh679/Unity-Tools.git
