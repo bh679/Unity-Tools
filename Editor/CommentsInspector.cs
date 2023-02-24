@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEditor;
 
-namespace BrennanHatton.UnityTools
+namespace BrennanHatton.UnityTools.EditorTools
 {
 	
 	[CustomEditor(typeof(Comments))]

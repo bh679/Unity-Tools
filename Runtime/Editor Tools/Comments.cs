@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace BrennanHatton.UnityTools
+namespace BrennanHatton.UnityTools.EditorTools
 {
 	public class Comments : MonoBehaviour {
 	
