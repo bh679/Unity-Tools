@@ -2,74 +2,78 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MaterialColorBlender : MonoBehaviour
+namespace BrennanHatton.UnityTools
 {
-	public Renderer renderer;
-	public Color defaultColor;
 	
-	void Reset()
+	public class MaterialColorBlender : MonoBehaviour
 	{
-		renderer = this.GetComponentInChildren<Renderer>();
-		defaultColor = renderer.material.color;
-	}
-    
-	public void SetRedAndFadeBackSeconds(float seconds)
-	{
-		if(renderer == null)
-			return;
-			
-		StartCoroutine(iBlendColorOverTime(Color.red, defaultColor, seconds));
-	}
-	
-	public void SetRedAndFadeBack1Sec()
-	{
-		if(renderer == null)
-			return;
-			
-		StartCoroutine(iBlendColorOverTime(Color.red, defaultColor, 1));
-	}
-	
-	public void SetColorAndFadeBack1Sec(Color target)
-	{
-		if(renderer == null)
-			return;
-			
-		StartCoroutine(iBlendColorOverTime(target, renderer.material.color, 1));
-	}
-	
-	public void FadeBack(float time)
-	{
-		if(renderer == null)
-			return;
-			
-		StartCoroutine(iBlendColorOverTime(defaultColor, renderer.material.color, time));
-	}
-	
-	public void SetColorAndFadeBack(Color target, float time)
-	{
-		if(renderer == null)
-			return;
-			
-		StartCoroutine(iBlendColorOverTime(target, renderer.material.color, time));
-	}
-	
-	public void BlendColorOverTime(Color target, float time)
-	{
-		if(renderer == null)
-			return;
-			
-		StartCoroutine(iBlendColorOverTime(renderer.material.color,target,time));
-	}
-	
-	IEnumerator iBlendColorOverTime(Color colorStart, Color colorEnd, float time)
-	{
-		float blendFrames = time/Time.deltaTime;
+		public Renderer renderer;
+		public Color defaultColor;
 		
-		for(float i = 0; i < blendFrames; i++)
+		void Reset()
 		{
-			renderer.material.color = Color.Lerp(colorStart,colorEnd,i/blendFrames);
+			renderer = this.GetComponentInChildren<Renderer>();
+			defaultColor = renderer.material.color;
+		}
+	    
+		public void SetRedAndFadeBackSeconds(float seconds)
+		{
+			if(renderer == null)
+				return;
+				
+			StartCoroutine(iBlendColorOverTime(Color.red, defaultColor, seconds));
+		}
+		
+		public void SetRedAndFadeBack1Sec()
+		{
+			if(renderer == null)
+				return;
+				
+			StartCoroutine(iBlendColorOverTime(Color.red, defaultColor, 1));
+		}
+		
+		public void SetColorAndFadeBack1Sec(Color target)
+		{
+			if(renderer == null)
+				return;
+				
+			StartCoroutine(iBlendColorOverTime(target, renderer.material.color, 1));
+		}
+		
+		public void FadeBack(float time)
+		{
+			if(renderer == null)
+				return;
+				
+			StartCoroutine(iBlendColorOverTime(defaultColor, renderer.material.color, time));
+		}
+		
+		public void SetColorAndFadeBack(Color target, float time)
+		{
+			if(renderer == null)
+				return;
+				
+			StartCoroutine(iBlendColorOverTime(target, renderer.material.color, time));
+		}
+		
+		public void BlendColorOverTime(Color target, float time)
+		{
+			if(renderer == null)
+				return;
+				
+			StartCoroutine(iBlendColorOverTime(renderer.material.color,target,time));
+		}
+		
+		IEnumerator iBlendColorOverTime(Color colorStart, Color colorEnd, float time)
+		{
+			float blendFrames = time/Time.deltaTime;
 			
-			yield return new WaitForEndOfFrame();
+			for(float i = 0; i < blendFrames; i++)
+			{
+				renderer.material.color = Color.Lerp(colorStart,colorEnd,i/blendFrames);
+				
+				yield return new WaitForEndOfFrame();
+			}
 		}
 	}
 }
