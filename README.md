@@ -2,7 +2,9 @@
 Unity Tools that I use is most games / apps I build.
 
  - Open AI Tools
-   - Prompt
+   - Basic API Calls
+   - Prompt Injection
+   - Chat Interface
  - Generic Tools for using in the inspector
    - Audio 
    - Managing Game Objects
