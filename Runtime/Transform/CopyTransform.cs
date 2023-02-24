@@ -44,6 +44,9 @@ namespace BrennanHatton.UnityTools
 		
 		public void CopyFromTransform(Transform _target)
 		{
+			if(_target == null)
+				return;
+		
 			if(position)
 			{
 				if(Local)
