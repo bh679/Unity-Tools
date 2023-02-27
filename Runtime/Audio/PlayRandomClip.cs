@@ -43,14 +43,15 @@ namespace BrennanHatton.UnityTools
 			//Debug.Log(clips[id]);
 		}
 		
-		void Play(float volumeScale = 1)
+		void Play(float volumeScale = -1)
 		{
 			if(playOnShot)
-				source.PlayOneShot(clips[id],volumeScale);
+				source.PlayOneShot(clips[id],volumeScale>=0?volumeScale:1);
 			else
 			{
 				source.clip = clips[id];
-				source.volume = volumeScale;
+				if(volumeScale >= 0)
+					source.volume = volumeScale;
 				source.Play();
 			}
 		}
@@ -64,6 +65,13 @@ namespace BrennanHatton.UnityTools
 			Play();
 		}
 		
+		public void PlayRandomClipChance(int oneIn)
+		{
+			if(Random.Range(0,oneIn) == 0)
+			{
+				Play();
+			}
+		}
 		
 	    // Start is called before the first frame update
 	    void Start()
