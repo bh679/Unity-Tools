@@ -47,23 +47,30 @@ namespace BrennanHatton.UnityTools
 			source.PlayOneShot(clips[id],volumeScale);
 		}
 		
+		public void PlayNextClip()
+		{
+			if(onlyIfNotPlayer && source.isPlaying)
+				return;
+				
+			id++;
+			Play();
+		}
+		
 		
 	    // Start is called before the first frame update
 	    void Start()
 		{
-			if(onlyIfNotPlayer && source.isPlaying)
-				return;
 	    	
 		    if(onStart)
 			    source.PlayOneShot(clips[id]);
 		    
 	    }
-		
-		public void PlayNextClip()
-		{
-			id++;
-			Play();
-		}
+	
+	    // Update is called once per frame
+	    void Update()
+	    {
+	        
+	    }
 	}
 
 }
