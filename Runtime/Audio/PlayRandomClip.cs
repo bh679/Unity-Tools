@@ -58,12 +58,12 @@ namespace BrennanHatton.UnityTools
 			    source.PlayOneShot(clips[id]);
 		    
 	    }
-	
-	    // Update is called once per frame
-	    void Update()
-	    {
-	        
-	    }
+		
+		public void PlayNextClip()
+		{
+			id++;
+			Play();
+		}
 	}
 
 }
