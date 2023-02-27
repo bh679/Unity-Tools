@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +8,8 @@ namespace BrennanHatton.UnityTools
 	public class PlayRandomClip : MonoBehaviour
 	{
 		public bool PlayOnEnable = false;
+		public bool onStart = false;
+		public bool onlyIfNotPlayer = false;
 		
 		public AudioClip[] clips;
 		public AudioSource source;
@@ -24,10 +26,11 @@ namespace BrennanHatton.UnityTools
 				playRandomClip();
 		}
 		
+		int id;
 		public void playRandomClip()
 		{
-			int id = Random.Range(0,clips.Length);
-			source.PlayOneShot(clips[id]);
+			id = Random.Range(0,clips.Length);
+			Play();
 			//Debug.Log(clips[id]);
 		}
 		
@@ -35,14 +38,25 @@ namespace BrennanHatton.UnityTools
 		{
 			Random.seed = System.DateTime.Today.Second + System.DateTime.Today.Millisecond +System.DateTime.Today.Minute + System.DateTime.Today.Hour + System.DateTime.Today.Date.DayOfYear;
 			int id = Random.Range(0,clips.Length);
-			source.PlayOneShot(clips[id],volumeScale);
+			Play(volumeScale);
 			//Debug.Log(clips[id]);
 		}
 		
+		void Play(float volumeScale = 1)
+		{
+			source.PlayOneShot(clips[id],volumeScale);
+		}
+		
+		
 	    // Start is called before the first frame update
 	    void Start()
-	    {
-	        
+		{
+			if(onlyIfNotPlayer && source.isPlaying)
+				return;
+	    	
+		    if(onStart)
+			    source.PlayOneShot(clips[id]);
+		    
 	    }
 	
 	    // Update is called once per frame
