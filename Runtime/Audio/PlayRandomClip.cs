@@ -49,7 +49,7 @@ namespace BrennanHatton.UnityTools
 				source.PlayOneShot(clips[id],volumeScale);
 			else
 			{
-				source.clip=clips[id];
+				source.clip = clips[id];
 				source.volume = volumeScale;
 				source.Play();
 			}
@@ -70,8 +70,14 @@ namespace BrennanHatton.UnityTools
 		{
 	    	
 		    if(onStart)
-			    source.PlayOneShot(clips[id]);
+			    Play();
 		    
+	    }
+	
+	    // Update is called once per frame
+	    void Update()
+	    {
+	        
 	    }
 	}
 
