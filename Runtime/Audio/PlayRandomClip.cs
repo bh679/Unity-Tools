@@ -24,11 +24,11 @@ namespace BrennanHatton.UnityTools
 		void OnEnable()
 		{
 			if(PlayOnEnable)
-				PlayRandomClip();
+				PlayRandomClipPLz();
 		}
 		
 		int id;
-		public void PlayRandomClip()
+		public void PlayRandomClipPLz()
 		{
 			id = Random.Range(0,clips.Length);
 			play();
@@ -69,7 +69,7 @@ namespace BrennanHatton.UnityTools
 		{
 			if(Random.Range(0,oneIn) == 0)
 			{
-				PlayRandomClip();
+				PlayRandomClipPLz();
 			}
 		}
 		
@@ -78,7 +78,7 @@ namespace BrennanHatton.UnityTools
 		{
 	    	
 		    if(onStart)
-			    PlayRandomClip();
+			    PlayRandomClipPLz();
 		    
 	    }
 	
