@@ -10,6 +10,7 @@ namespace BrennanHatton.UnityTools
 		public bool PlayOnEnable = false;
 		public bool onStart = false;
 		public bool onlyIfNotPlayer = false;
+		public bool playOnShot = true;
 		
 		public AudioClip[] clips;
 		public AudioSource source;
@@ -44,7 +45,14 @@ namespace BrennanHatton.UnityTools
 		
 		void Play(float volumeScale = 1)
 		{
-			source.PlayOneShot(clips[id],volumeScale);
+			if(playOnShot)
+				source.PlayOneShot(clips[id],volumeScale);
+			else
+			{
+				source.clip=clips[id];
+				source.volume = volumeScale;
+				source.Play();
+			}
 		}
 		
 		public void PlayNextClip()
@@ -64,12 +72,6 @@ namespace BrennanHatton.UnityTools
 		    if(onStart)
 			    source.PlayOneShot(clips[id]);
 		    
-	    }
-	
-	    // Update is called once per frame
-	    void Update()
-	    {
-	        
 	    }
 	}
 
