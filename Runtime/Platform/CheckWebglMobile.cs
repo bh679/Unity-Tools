@@ -18,10 +18,10 @@ namespace BrennanHatton.UnityTools
 	 
 		public bool isMobile()
 		{
-	         #if !UNITY_EDITOR && UNITY_WEBGL
+	        /* #if !UNITY_EDITOR && UNITY_WEBGL
 			return IsMobile();
 	         #endif
-			return false;
+			return false;*/
 		}
 		
 		public void EnableOnMobile()
@@ -34,17 +34,5 @@ namespace BrennanHatton.UnityTools
 			for(int i = 0; i < webGlNotMobile.Length; i++)
 				webGlNotMobile[i].SetActive(!_isMobile);
 		}
-		
-	    // Start is called before the first frame update
-	    void Start()
-	    {
-	        
-	    }
-	
-	    // Update is called once per frame
-	    void Update()
-	    {
-	        
-	    }
 	}
 }
