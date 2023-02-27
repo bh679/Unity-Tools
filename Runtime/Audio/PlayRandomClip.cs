@@ -24,14 +24,14 @@ namespace BrennanHatton.UnityTools
 		void OnEnable()
 		{
 			if(PlayOnEnable)
-				playRandomClip();
+				PlayRandomClip();
 		}
 		
 		int id;
-		public void playRandomClip()
+		public void PlayRandomClip()
 		{
 			id = Random.Range(0,clips.Length);
-			Play();
+			play();
 			//Debug.Log(clips[id]);
 		}
 		
@@ -39,11 +39,11 @@ namespace BrennanHatton.UnityTools
 		{
 			Random.seed = System.DateTime.Today.Second + System.DateTime.Today.Millisecond +System.DateTime.Today.Minute + System.DateTime.Today.Hour + System.DateTime.Today.Date.DayOfYear;
 			int id = Random.Range(0,clips.Length);
-			Play(volumeScale);
+			play(volumeScale);
 			//Debug.Log(clips[id]);
 		}
 		
-		void Play(float volumeScale = -1)
+		void play(float volumeScale = -1)
 		{
 			if(playOnShot)
 				source.PlayOneShot(clips[id],volumeScale>=0?volumeScale:1);
@@ -62,14 +62,14 @@ namespace BrennanHatton.UnityTools
 				return;
 				
 			id++;
-			Play();
+			play();
 		}
 		
 		public void PlayRandomClipChance(int oneIn)
 		{
 			if(Random.Range(0,oneIn) == 0)
 			{
-				Play();
+				PlayRandomClip();
 			}
 		}
 		
@@ -78,7 +78,7 @@ namespace BrennanHatton.UnityTools
 		{
 	    	
 		    if(onStart)
-			    Play();
+			    PlayRandomClip();
 		    
 	    }
 	
