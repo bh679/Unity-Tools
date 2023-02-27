@@ -18,6 +18,7 @@ namespace BrennanHatton.UnityTools
 	 
 		public bool isMobile()
 		{
+		Debug.LogError("You may need to uncomment this line. Remove for WebGL");
 	        /* #if !UNITY_EDITOR && UNITY_WEBGL
 			return IsMobile();
 	         #endif
