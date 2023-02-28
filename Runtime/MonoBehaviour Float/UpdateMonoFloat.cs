@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BrennanHatton.Scoring
+namespace BrennanHatton.UnityTools.MonoFloat
 {
 	
-	public class UpdateScoreFloat : MonoBehaviour
+	public class UpdateMonoFloat : MonoBehaviour
 	{
-		public ScoringFloat scoreFloat;
+		public MonoFloat scoreFloat;
 		
 		public float addAmount = 1f;
 		
 		void Reset()
 		{
-			scoreFloat = GameObject.FindFirstObjectByType<ScoringFloat>();
+			scoreFloat = GameObject.FindFirstObjectByType<MonoFloat>();
 		}
 		
 		[Tooltip("Changes score value by 'addAmount' every second")]
@@ -23,12 +23,12 @@ namespace BrennanHatton.Scoring
 	    void Update()
 	    {
 		    if(OnUpdate)
-			    AddToScore(addAmount);
+			    AddToFloat(addAmount);
 	    }
 	    
-		public void AddToScore(float value)
+		public void AddToFloat(float value)
 		{
-			scoreFloat.UpdateScore(value);
+			scoreFloat.UpdateFloat(value);
 		}
 	}
 }

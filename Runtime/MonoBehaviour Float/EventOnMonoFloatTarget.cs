@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace BrennanHatton.Scoring
+
+namespace BrennanHatton.UnityTools.MonoFloat
 {
-	public class EventOnFloatTarget : MonoBehaviour
+
+	public class EventOnMonoFloatTarget : MonoBehaviour
 	{
-		public ScoringFloat score;
+		public MonoFloat monoFloat;
 		public float target;
-		public EventOnFloatChange requireScoreChange;
+		public EventOnMonoFloatChange requireScoreChange;
 		public UnityEvent onGreaterThan = new UnityEvent();
 		public UnityEvent onEqualTo = new UnityEvent();
 		public UnityEvent onLessThan = new UnityEvent();
@@ -25,16 +27,16 @@ namespace BrennanHatton.Scoring
 		
 		void Reset()
 		{
-			score = this.GetComponent<ScoringFloat>();
-			requireScoreChange = this.GetComponent<EventOnFloatChange>();
+			monoFloat = this.GetComponent<MonoFloat>();
+			requireScoreChange = this.GetComponent<EventOnMonoFloatChange>();
 		}
 		
 		// Start is called before the first frame update
 		void Start()
 		{
-			if(score.GetScore() > target)
+			if(monoFloat.GetFloat() > target)
 				state = comparisonState.greaterThan;
-			else if(score.GetScore() == target)
+			else if(monoFloat.GetFloat() == target)
 				state = comparisonState.equalTo;
 			else 
 				state = comparisonState.lessThan;
@@ -62,9 +64,9 @@ namespace BrennanHatton.Scoring
 		{
 			lastState = state;
 			
-			if(score.GetScore() > target)
+			if(monoFloat.GetFloat() > target)
 				state = comparisonState.greaterThan;
-			else if(score.GetScore() == target)
+			else if(monoFloat.GetFloat() == target)
 				state = comparisonState.equalTo;
 			else 
 				state = comparisonState.lessThan;

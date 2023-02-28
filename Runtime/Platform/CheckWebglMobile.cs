@@ -18,11 +18,12 @@ namespace BrennanHatton.UnityTools
 	 
 		public bool isMobile()
 		{
-		Debug.LogError("You may need to uncomment this line. Remove for WebGL");
+			Debug.LogError("To make this work, you ned to find the javascript file. Check Dungeon Train source, or maybe BrennanHatton/TheGame");
 	        /* #if !UNITY_EDITOR && UNITY_WEBGL
 			return IsMobile();
 	         #endif
 			return false;*/
+			return false;
 		}
 		
 		public void EnableOnMobile()

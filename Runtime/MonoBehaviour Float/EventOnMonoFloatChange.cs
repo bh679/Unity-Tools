@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace BrennanHatton.Scoring
+namespace BrennanHatton.UnityTools.MonoFloat
 {
-	public class EventOnFloatChange : MonoBehaviour
+	public class EventOnMonoFloatChange : MonoBehaviour
 	{
-		public ScoringFloat scoringFloat;
+		public MonoFloat scoringFloat;
 		float lastFrameValue;
 		public UnityEvent onScoreChange = new UnityEvent();
 		bool scoreChanged = false;
 		
 		void Reset()
 		{
-			scoringFloat = this.GetComponent<ScoringFloat>();
+			scoringFloat = this.GetComponent<MonoFloat>();
 		}
 		
 	    // Start is called before the first frame update
 	    void Start()
 		{
-			lastFrameValue = scoringFloat.GetScore();
+			lastFrameValue = scoringFloat.GetFloat();
 	    }
 	
 	    // Update is called once per frame
@@ -39,12 +39,12 @@ namespace BrennanHatton.Scoring
 		{
 			scoreChanged = false;
 			
-			if(lastFrameValue != scoringFloat.GetScore())
+			if(lastFrameValue != scoringFloat.GetFloat())
 			{
 				scoreChanged = true;
 			}
 		    
-			lastFrameValue = scoringFloat.GetScore();
+			lastFrameValue = scoringFloat.GetFloat();
 			
 			return scoreChanged;
 		}
