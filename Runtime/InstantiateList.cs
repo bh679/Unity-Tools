@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿/*
+Brennan Hatton
+2022
+A instantiona management class, for tracking items to be instantiated and limiting number of items instantiated per frame
+*/
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
