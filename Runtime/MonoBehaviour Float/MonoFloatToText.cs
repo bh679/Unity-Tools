@@ -16,7 +16,7 @@ namespace BrennanHatton.UnityTools.MonoFloat
 			
 		void Reset()
 		{
-			monoFloat = this.GetComponent<MonoFloat>();
+			monoFloat = GameObject.FindAnyObjectByType<MonoFloat>();
 			text = this.GetComponent<TMP_Text>();
 			legacyText = this.GetComponent<Text>();
 		}
