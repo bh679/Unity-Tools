@@ -11,10 +11,10 @@ namespace BrennanHatton.UnityTools
 		
 		public GameObject[] mobileOnly, webGlNotMobile;
 		
-	         #if !UNITY_EDITOR && UNITY_WEBGL
+		/*   #if !UNITY_EDITOR && UNITY_WEBGL
 		[DllImport("__Internal")]
 		private static extern bool IsMobile();
-	         #endif
+	         #endif*/
 	 
 		public bool isMobile()
 		{
