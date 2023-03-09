@@ -18,10 +18,28 @@ namespace BrennanHatton.UnityTools.MonoFloat
 		public UnityEvent onComplete = new UnityEvent();
 		
 		
-	    // Start is called before the first frame update
+		// Start is called before the first frame update
 		public void StartScale()
 		{
 			StartCoroutine(Scale());
+		}
+		
+		// Start is called before the first frame update
+		public void StartScaleToFloat(float size)
+		{
+			StartCoroutine(ScaleToFloat(size));
+		}
+		
+		IEnumerator ScaleToFloat(float size)
+		{
+			for(int i = 0; i < time*25; i++)
+			{
+				yield return new WaitForSeconds((time/25f) * Time.deltaTime);
+			
+				transform.localScale = baseScale + Vector3.up*scaleFactor*size*i/(time*25);
+			}
+				
+			onComplete.Invoke();
 		}
 		
 		IEnumerator Scale()
