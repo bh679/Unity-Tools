@@ -53,12 +53,12 @@ namespace BrennanHatton.UnityTools
 		public bool inverse = false;
 		public bool onStart = true;
 		
-	    // Start is called before the first frame update
-	    void Start()
+		// Start is called before the first frame update
+		void Start()
 		{
 			if(onStart)
-		    	Check();
-	    }
+				Check();
+		}
 	    
 		void Check()
 		{
