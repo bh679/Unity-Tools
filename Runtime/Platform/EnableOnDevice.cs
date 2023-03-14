@@ -21,6 +21,11 @@ namespace BrennanHatton.UnityTools
 			public MonoBehaviour[] monoBehaviours;
 			public GameObject[] gameObjects;
 			
+			public DevicesActive(string _deviceName)
+			{
+				deviceName = _deviceName;
+			}
+			
 			public bool CheckAndSet()
 			{
 				SetEnable(CheckDeviceName());
@@ -49,7 +54,14 @@ namespace BrennanHatton.UnityTools
 			}
 		}
 		
-		public DevicesActive[] devices;
+		public DevicesActive[] devices = { 
+			new DevicesActive("Default"),
+			new DevicesActive("Oculus Quest"),
+			new DevicesActive("Oculus Quest 2"),
+			new DevicesActive("Oculus Quest Pro"),
+			new DevicesActive("Oculus Rift S"),
+			new DevicesActive("Pico")
+		};
 		public bool inverse = false;
 		public bool onStart = true;
 		
