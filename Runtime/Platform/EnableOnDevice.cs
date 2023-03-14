@@ -11,13 +11,15 @@ using UnityEngine;
 namespace BrennanHatton.UnityTools
 {
 
-	public class EnableMonoBehaviourOnDevice : MonoBehaviour
+	public class EnableOnDevice : MonoBehaviour
 	{
 		[System.Serializable]
 		public class DevicesActive
 		{
 			public string deviceName = "Oculus Quest 2";
 			bool active = false;
+			public MonoBehaviour[] monoBehaviours;
+			public GameObject[] gameObjects;
 			
 			public bool CheckAndSet()
 			{
@@ -34,11 +36,20 @@ namespace BrennanHatton.UnityTools
 			public void SetEnable(bool enabled)
 			{
 				active = enabled;
+				
+				for(int i =0; i < gameObjects.Length; i++)
+				{
+					gameObjects[i].SetActive(enabled);
+				}
+				
+				for(int i =0; i < monoBehaviours.Length; i++)
+				{
+					monoBehaviours[i].enabled = enabled;
+				}
 			}
 		}
 		
 		public DevicesActive[] devices;
-		public MonoBehaviour monoBehaviour;
 		public bool inverse = false;
 		public bool onStart = true;
 		
@@ -65,7 +76,7 @@ namespace BrennanHatton.UnityTools
 				devices[0].SetEnable(true);
 			}
 			
-			monoBehaviour.enabled = inverse?!found:found;
+			//monoBehaviour.enabled = inverse?!found:found;
 		}
 	}
 
