@@ -49,7 +49,7 @@ namespace BrennanHatton.UnityTools
 				source.PlayOneShot(clips[id],volumeScale>=0?volumeScale:1);
 			else
 			{
-				source.clip = clips[id];
+				source.clip = clips[id % clips.Length];
 				if(volumeScale >= 0)
 					source.volume = volumeScale;
 				source.Play();
