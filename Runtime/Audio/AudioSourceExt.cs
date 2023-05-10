@@ -73,6 +73,14 @@ namespace BrennanHatton.UnityTools
 				VolumeIncreaseToTarget(time, target);
 		}
 		
+		public void VolumeFadeToTargetOver2(float target)
+		{
+			if(target > audioSource.volume)
+				VolumeDecreaseToTarget(2, target);
+			else if(target < audioSource.volume)
+				VolumeIncreaseToTarget(2, target);
+		}
+		
 		
 		public void VolumeFadeToZero(float time)
 		{
