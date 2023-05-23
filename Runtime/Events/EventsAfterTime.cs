@@ -23,7 +23,7 @@ namespace BrennanHatton.UnityTools
 		OnAwake, OnStart, OnEnable, OnEnableOnce
 	}
 
-	[AddComponentMenu ("Brennan Hatton/Events/Event After Time" )]
+	[AddComponentMenu ("Brennan Hatton/Events/Events After Time" )]
 	public class EventsAfterTime : MonoBehaviour 
 	{
 		public List<UnityEventAfterTime> timedEvents = new List<UnityEventAfterTime>();
