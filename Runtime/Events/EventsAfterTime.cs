@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
 namespace BrennanHatton.UnityTools
 {
+	[System.Serializable]
 	public class UnityEventAfterTime
 	{
 		//Time until event is called public float time;
