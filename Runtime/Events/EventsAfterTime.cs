@@ -10,14 +10,14 @@ namespace BrennanHatton.UnityTools
 	[System.Serializable]
 	public class UnityEventAfterTime
 	{
+	
+		public float time = 0;
 		//Time until event is called public float time;
 		//Event to be called
 		public UnityEvent timedEvent;
 		
 		//If we repeat the event or not
 		public bool looping = false;
-	
-		public float time = 0;
 	}
 	
 	public enum MonoStart
@@ -28,8 +28,8 @@ namespace BrennanHatton.UnityTools
 	[AddComponentMenu ("Brennan Hatton/Events/Events After Time" )]
 	public class EventsAfterTime : MonoBehaviour 
 	{
-		public List<UnityEventAfterTime> timedEvents = new List<UnityEventAfterTime>();
 		public MonoStart startTime = MonoStart. OnEnable;
+		public List<UnityEventAfterTime> timedEvents = new List<UnityEventAfterTime>();
 		
 		bool called = false;
 		
