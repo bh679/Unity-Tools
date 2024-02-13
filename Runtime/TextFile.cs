@@ -7,9 +7,17 @@ public class TextFile : MonoBehaviour
 {
     
 		
-	public static IEnumerator Load(string filPath, System.Action<string> result)
+	public static IEnumerator Load(string filePath, System.Action<string> result)
 	{
-		string path = "file://" + Application.streamingAssetsPath + filPath;
+		string path;
+			
+#if UNITY_ANDROID && !UNITY_EDITOR
+		// For Android, directly use the path without "file://" prefix
+		path = Application.streamingAssetsPath + filePath;
+#else
+		// For other platforms, prepend "file://" to the path
+		path = "file://" + Application.streamingAssetsPath + filePath;
+#endif
 		Debug.Log(path);
 		using (UnityWebRequest www = UnityWebRequest.Get(path))
 		{
